@@ -22,30 +22,30 @@ int main(int argc, char *argv[])
     FILE *out;  /* fixed output file */
 
     if (argc <= 2) {
-    fprintf(stderr, "usage: fixgz bad.gz fixed.gz\n");
-    exit(1);
+        fprintf(stderr, "usage: fixgz bad.gz fixed.gz\n");
+        exit(1);
     }
     in  = fopen(argv[1], "rb");
     if (in == NULL) {
-    fprintf(stderr, "fixgz: cannot open %s\n", argv[1]);
-    exit(1);
+        fprintf(stderr, "fixgz: cannot open %s\n", argv[1]);
+        exit(1);
     }
     out = fopen(argv[2], "wb");
-    if (in == NULL) {
-    fprintf(stderr, "fixgz: cannot create %s\n", argv[2]);
-    exit(1);
+    if (out == NULL) {
+        fprintf(stderr, "fixgz: cannot create %s\n", argv[2]);
+        exit(1);
     }
 
     c1 = fgetc(in);
 
     while ((c2 = fgetc(in)) != EOF) {
-    if (c1 != '\r' || c2 != '\n') {
-        fputc(c1, out);
-    }
-    c1 = c2;
+        if (c1 != '\r' || c2 != '\n') {
+            fputc(c1, out);
+        }
+        c1 = c2;
     }
     if (c1 != EOF) {
-    fputc(c1, out);
+        fputc(c1, out);
     }
     exit(0);
     return 0; /* avoid warning */
