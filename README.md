@@ -15,6 +15,13 @@ cmake ..
 make
 ```
 
+### Requirements
+
+- gcc
+- gpp
+- cmake
+- make
+
 ## Usage
 
 ```bash
