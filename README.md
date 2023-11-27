@@ -1,11 +1,22 @@
 # fixgz
+
 https://stackoverflow.com/questions/33052406/invalid-compressed-data-format-violated
 
-## Build the executable
+## Build
 
 ```bash
-gcc ./fixgz.c -O2 -o ./fixgz
+./build.sh
+
+# or
+
+mkdir -p build
+cd build
+cmake ..
+make
 ```
 
-## Usage: 
-```fixgz.exe  bad.gz fixed.gz```
+## Usage
+
+```bash
+fixgz  bad.gz fixed.gz
+```
